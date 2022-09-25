@@ -10,9 +10,6 @@ namespace RockPaperScissors
     {
         static void Main(string[] args)
         {
-        //   ConsoleColor background = Console.BackgroundColor;
-        //   ConsoleColor foreground = Console.ForegroundColor;
-
             const string Rock = "Rock";
             const string Paper = "Paper";
             const string Scissors = "Scissors";
@@ -22,23 +19,25 @@ namespace RockPaperScissors
 
             Console.ForegroundColor = ConsoleColor.Cyan;
 
-            Console.WriteLine($"Games to be played: ");
+            Console.Write($"Games to be played: ");
 
             int gamesToBePlayed = 0;
 
             gamesToBePlayed = int.Parse(Console.ReadLine());
 
-            Console.WriteLine($"Choose [r]ock, [p]aper, [s]cissors: ");
-
+            Console.WriteLine();
+            
             for (int i = 1; i <= gamesToBePlayed; i++)
             {
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.Write($"Choose [r]ock, [p]aper, [s]cissors: ");
                 string playerMove = Console.ReadLine();
 
                 if (playerMove == "r" || playerMove == "rock")
                 {
                     playerMove = Rock;
                 }
-                else if (playerMove == "p" || playerMove == "Paper")
+                else if (playerMove == "p" || playerMove == "paper")
                 {
                     playerMove = Paper;
                 }
@@ -102,18 +101,22 @@ namespace RockPaperScissors
                     Console.WriteLine("This game was a draw.");
                     drawGames++;
                 }
+                Console.WriteLine();
             }
+            Console.WriteLine();
 
             Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.WriteLine($"You win {winnedGames} out of {gamesToBePlayed}!");
+            Console.WriteLine($"You win {winnedGames} out of {gamesToBePlayed} games!");
 
             Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine($"{drawGames} out of {gamesToBePlayed} are draw.");
+            Console.WriteLine($"{drawGames} out of {gamesToBePlayed} games are draw.");
 
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine($"You lost {lostGames} out of {gamesToBePlayed}.");
+            Console.WriteLine($"You lost {lostGames} out of {gamesToBePlayed} games.");
 
             Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("Press any key to exit...");
+            Console.ReadKey();
         }
     }
 }
