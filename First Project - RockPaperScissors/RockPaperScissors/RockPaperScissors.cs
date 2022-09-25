@@ -10,11 +10,17 @@ namespace RockPaperScissors
     {
         static void Main(string[] args)
         {
+        //   ConsoleColor background = Console.BackgroundColor;
+        //   ConsoleColor foreground = Console.ForegroundColor;
+
             const string Rock = "Rock";
             const string Paper = "Paper";
             const string Scissors = "Scissors";
 
+            Console.ForegroundColor = ConsoleColor.Cyan;
+
             Console.WriteLine($"Choose [r]ock, [p]aper, [s]cissors: ");
+
             string playerMove = Console.ReadLine();
 
             if (playerMove == "r" || playerMove == "rock")
@@ -31,6 +37,8 @@ namespace RockPaperScissors
             }
             else
             {
+                Console.ForegroundColor = ConsoleColor.Gray;
+
                 Console.WriteLine("Invalid input. Try Again...");
                 return;
             }
@@ -42,12 +50,15 @@ namespace RockPaperScissors
             switch (computerRandomNumber)
             {
                 case 1:
-                     computerMove = Rock;
+                    Console.ForegroundColor = ConsoleColor.DarkGray;
+                    computerMove = Rock;
                      break;
                 case 2:
+                    Console.ForegroundColor = ConsoleColor.Green;
                     computerMove = Paper;
                     break;
                 case 3:
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                     computerMove = Scissors;
                     break;                  
             }
@@ -58,20 +69,25 @@ namespace RockPaperScissors
                 (playerMove == Scissors && computerMove == Paper) ||
                 (playerMove == Paper && computerMove == Rock))
             {
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
                 Console.WriteLine("You win.");
             }
             else if ((playerMove == Rock && computerMove == Paper) ||
                 (playerMove == Scissors && computerMove == Rock) ||
                 (playerMove == Paper && computerMove == Scissors))
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("You lose.");
             }
             else if ((playerMove == Rock && computerMove == Rock) ||
                 (playerMove == Scissors && computerMove == Scissors) ||
                 (playerMove == Paper && computerMove == Paper))
             {
+                Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("This game was a draw.");
             }
+
+            Console.ForegroundColor = ConsoleColor.White;
         }
     }
 }
