@@ -19,7 +19,7 @@ namespace RockPaperScissors
 
             Console.ForegroundColor = ConsoleColor.Cyan;
 
-            Console.Write($"Games to be played: ");
+            Console.Write($"How many games do you want to play?: ");
 
             int gamesToBePlayed = 0;
 
